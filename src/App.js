@@ -12,10 +12,18 @@ import NotFound from './pages/NotFound';
 import CatNew from './pages/CatNew';
 import CatShow from './pages/CatShow';
 import Home from './pages/Home';
+import mockCats from './mockCats.js';
 
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      cats: mockCats
+    }
+  }
+  
   render() {
     return (
       <>
