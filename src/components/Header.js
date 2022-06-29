@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+
+import { NavLink } from 'react-router-dom'
+
 import '../css/header.css'
+
 
 class Header extends Component {
   render() {
     return (
+
     <>
     <div id="headerContainer">
         <header>
@@ -16,6 +21,7 @@ class Header extends Component {
         </header>
       </div>
     </>
+
     )
   }
 }
