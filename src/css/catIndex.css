@@ -1,0 +1,14 @@
+#cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    width: 200px;
+    height: fit-content;
+    overflow: scroll;
+    
+}
+#cards{
+    position: relative;
+}
