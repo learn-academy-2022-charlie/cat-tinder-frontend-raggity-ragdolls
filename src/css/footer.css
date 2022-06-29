@@ -1,0 +1,58 @@
+#container{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    
+}
+
+footer {
+    margin: 0; 
+    padding: 2em 5em 11vh; 
+    color: #efefef;
+    overflow:hidden;
+    position: relative;
+    animation: slide-bottom cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s both;
+    text-align: left;
+    bottom: 0;
+
+  }
+  footer::after {
+    content:"";
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width:100%;
+    transform: skewY(4deg);
+    background: red;
+    transform-origin: left bottom;
+    z-index: -1;
+   min-height: 100%;
+  }
+  #footerText{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+
+  }
+
+  @keyframes slide-bottom{
+    0%{
+        padding: 2em 5em 46vh;
+        transition: padding ease-in-out;
+    }10%{
+        padding: 2em 5em 46vh;
+        transition: padding ease-in-out;
+    }20%{
+        padding: 2em 5em 46vh;
+        transition: padding ease-in-out;
+    }30%{
+        padding: 2em 5em 46vh;
+        transition: padding ease-in-out;
+    }
+    100%{
+        padding: 2em 5em 13vh;
+        transition: padding ease-in-out;
+    }
+  }
