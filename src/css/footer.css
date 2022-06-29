@@ -14,7 +14,7 @@ footer {
     animation: slide-bottom cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s both;
     text-align: left;
     bottom: 0;
-
+    z-index: 1;
   }
   footer::after {
     content:"";
