@@ -1,7 +1,7 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Home from './Home'
+import Home from './Home.js'
 Enzyme.configure({adapter: new Adapter()})
 
 describe("When Home renders", () => {
@@ -10,7 +10,7 @@ describe("When Home renders", () => {
       home = shallow(<Home />)
     })
     it("displays a heading", () => {
-      const homeHeading = home.find("h3")
-      expect(homeHeading.length).toEqual(1)
+      const homeHeading = home.find("h3").text()
+      expect(homeHeading.length).toEqual("Home")
     })
   })
