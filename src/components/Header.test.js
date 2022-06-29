@@ -11,6 +11,10 @@ describe("When Header renders", () => {
       })
     it("displays a title with h1", () => {
       const headerTitleRender = headerRender.find("h1").text()
-      expect(headerTitleRender).toEqual("Slasher:tm:")
+      expect(headerTitleRender).toEqual("Slasher™️")
+    })
+    it("displays a slogan with h2", () => {
+      const headerTitleRender = headerRender.find("h2").text()
+      expect(headerTitleRender).toEqual("Get your scare on")
     })
   })

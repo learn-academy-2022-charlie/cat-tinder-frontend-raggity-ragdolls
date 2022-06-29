@@ -9,8 +9,8 @@ describe("When Footer renders", () => {
     beforeEach(() => {
       footer = shallow(<Footer />)
     })
-    it("displays 3 NavLinks", () => {
-      const footerRender = footer.find("NavLink")
-      expect(footerRender.length).toEqual("3")
+    it("displays two divs", () => {
+      const footerRender = footer.find("div")
+      expect(footerRender.length).toEqual(2)
     })
   })

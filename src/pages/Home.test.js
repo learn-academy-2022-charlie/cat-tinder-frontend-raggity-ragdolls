@@ -9,8 +9,8 @@ describe("When Home renders", () => {
     beforeEach(() => {
       home = shallow(<Home />)
     })
-    it("displays a heading", () => {
-      const homeHeading = home.find("h3").text()
-      expect(homeHeading.length).toEqual("Home")
+    it("displays a div", () => {
+      const homeHeading = home.find("div").text()
+      expect(homeHeading).toEqual("Home")
     })
   })
