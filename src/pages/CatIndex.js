@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import {
   Card,
   CardImg,
@@ -37,9 +38,11 @@ class CatIndex extends Component {
                 >
                   Age: {cat.age}
                 </CardSubtitle>
+                <NavLink to={`/catshow/${cat.id}`}>
                 <Button>
                   Check meowt
                 </Button>
+                </NavLink>
               </CardBody>
             </Card>
             </div>

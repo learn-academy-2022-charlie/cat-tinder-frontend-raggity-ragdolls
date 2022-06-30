@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import CatIndex from "./CatIndex";
+import CatIndex from "./CatIndex.js";
 
 Enzyme.configure({ adapter:new Adapter() })
 
@@ -30,5 +30,8 @@ describe("When CatIndex Renders", () => {
         const catIndexCard = catIndexRenderer.find("Card")
         expect(catIndexCard.length).toEqual(1)
     })
-    
+    it("displays a navLink button", () => {
+        const catIndexCard = catIndexRenderer.find("NavLink")
+        expect(catIndexCard.length).toEqual(1)
+    })
 })
