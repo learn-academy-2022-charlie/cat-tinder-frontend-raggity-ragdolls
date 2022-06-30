@@ -17,4 +17,8 @@ describe("When Header renders", () => {
       const headerTitleRender = headerRender.find("h2").text()
       expect(headerTitleRender).toEqual("Get your scare on")
     })
+    it("displays NavLinks", () => {
+      const navLink = headerRender.find("NavLink")
+      expect(navLink.length).toEqual(2)
+    })
   })
