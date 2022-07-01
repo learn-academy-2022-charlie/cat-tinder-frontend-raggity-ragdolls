@@ -9,36 +9,36 @@ import {
   Button,
   CardText
 } from 'reactstrap'
-import '../css/catIndex.css'
+import '../css/monsterIndex.css'
 
-class CatIndex extends Component {
+class MonsterIndex extends Component {
   render() {
-    const { cats } = this.props
-    console.log("INDEX", cats)
+    const { monsters } = this.props
+    console.log("INDEX", monsters)
     return (
       <>
-        <h1>Here are all the Cats</h1>
-        {cats && cats.map((cat, index)=>{
+        <h1>Here are all the monsters</h1>
+        {monsters && monsters.map((monster, index)=>{
           return(
             <div key={index} id="cardContainer">
             <Card id='cards' >
               <CardImg
                 alt="Card image cap"
-                src={cat.image}
+                src={monster.image}
                 top
                 width="25%"
               />
               <CardBody>
                 <CardTitle tag="h5">
-                  Hello, my name is {cat.name}
+                  Hello, my name is {monster.name}
                 </CardTitle>
                 <CardSubtitle
                   className="mb-2 text-muted"
                   tag="h6"
                 >
-                  Age: {cat.age}
+                  Age: {monster.age}
                 </CardSubtitle>
-                <NavLink to={`/catshow/${cat.id}`}>
+                <NavLink to={`/monstershow/${monster.id}`}>
                 <Button>
                   Check meowt
                 </Button>
@@ -52,4 +52,4 @@ class CatIndex extends Component {
     )
   }
 }
-export default CatIndex
+export default MonsterIndex
