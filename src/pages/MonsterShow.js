@@ -10,34 +10,37 @@ import {
 } from 'reactstrap'
 
 
-class CatShow extends Component {
+class MonsterShow extends Component {
   render() {
-    const { cat } = this.props
-    console.log("SHOW", cat)
+    const { monster } = this.props
+    console.log("SHOW", monster)
     return (
       <>
-        <h1>Here is a cat</h1>
-        {cat && 
+        <h1>Here is a monster</h1>
+        {monster && 
             <div id="cardContainer">
             <Card id='cards' >
               <CardImg
                 alt="Card image cap"
-                src={cat.image}
+                src={monster.image}
                 top
                 width="25%"
               />
               <CardBody>
                 <CardTitle tag="h5">
-                  Hello, my name is {cat.name}
+                  Hello, my name is {monster.name}
                 </CardTitle>
                 <CardSubtitle
                   className="mb-2 text-muted"
                   tag="h6"
                 >
-                  Age: {cat.age}
+                  Age: {monster.age}
                 </CardSubtitle>
                 <CardText>
-                    {cat.enjoys}
+                    {monster.specialty}
+                </CardText>
+                <CardText>
+                    {monster.quote}
                 </CardText>
               </CardBody>
             </Card>
@@ -47,4 +50,4 @@ class CatShow extends Component {
     )
   }
 }
-export default CatShow
+export default MonsterShow

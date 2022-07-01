@@ -6,13 +6,13 @@ import {
 } from 'react-router-dom'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CatEdit from './pages/CatEdit';
-import CatIndex from './pages/CatIndex';
+import MonsterEdit from './pages/MonsterEdit';
+import MonsterIndex from './pages/MonsterIndex';
 import NotFound from './pages/NotFound';
-import CatNew from './pages/CatNew';
-import CatShow from './pages/CatShow';
+import MonsterNew from './pages/MonsterNew';
+import MonsterShow from './pages/MonsterShow';
 import Home from './pages/Home';
-import mockCats from './mockCats.js';
+import mockMonsters from './mockMonsters.js';
 
 
 
@@ -20,32 +20,30 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cats: mockCats
+      monsters: mockMonsters
     }
   }
-  
+  createMonster = (monster) => {
+    console.log(this.state.monsters)
+  }
   render() {
     return (
-      <>
-      
       <Router>
         <Header/>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/catindex" render={(props)=> <CatIndex cats={this.state.cats}/>} />
-            <Route path="/catshow/:id" render= {(props) => {
+            <Route path="/monsterindex" render={(props)=> <MonsterIndex monsters={this.state.monsters}/>} />
+            <Route path="/monstershow/:id" render= {(props) => {
               let id = props.match.params.id
-              let cat = this.state.cats.find((catObject)=> catObject.id == id)
-              return <CatShow cat={cat}/>
+              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id == id)
+              return <MonsterShow monster={monster}/>
             }} />
-            <Route path="/catnew" component={CatNew} />
-            <Route path="/catedit" component={CatEdit} />
+            <Route path="/monsternew" render={(props) => <MonsterNew createMonster={this.createMonster}/>} />
+            <Route path="/monsteredit" component={MonsterEdit} />
             <Route component={NotFound} />
           </Switch>
         <Footer/>
       </Router>
-      
-      </>
     )
   }
 }

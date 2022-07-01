@@ -20,8 +20,8 @@ class Header extends Component {
             <h2>
                 Get your scare on
             </h2>
-            <NavLink to='/catindex'>
-            <p>All Cats</p>
+            <NavLink to='/monsterindex'>
+            <p>All Monsters</p>
             </NavLink>
             
         </header>
