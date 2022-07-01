@@ -12,7 +12,7 @@ import NotFound from './pages/NotFound';
 import MonsterNew from './pages/MonsterNew';
 import MonsterShow from './pages/MonsterShow';
 import Home from './pages/Home';
-import mockMonsters from './mockMonsters.js';
+
 
 
 
@@ -20,12 +20,33 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      monsters: mockMonsters
+      monsters: []
     }
   }
-  createMonster = (monster) => {
-    console.log(this.state.monsters)
+  componentDidMount() {
+    this.readMonster()
   }
+
+  readMonster = () => {
+    fetch("http://localhost:3000/monsters")
+    .then(response => response.json())
+    .then(monstersArray => this.setState({monsters: monstersArray}))
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
+  createMonster = (newMonster) => {
+    fetch("http://localhost:3000/monsters", {
+      body: JSON.stringify(newMonster),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
   render() {
     return (
       <Router>

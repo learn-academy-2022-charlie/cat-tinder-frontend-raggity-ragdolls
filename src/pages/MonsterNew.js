@@ -19,7 +19,8 @@ class MonsterNew extends Component {
   }
 
   handleChange = (e) => {
-    let {newMonster} = this.state.newMonster[e.target.name] = e.target.value
+    let {newMonster} = this.state
+    newMonster[e.target.name] = e.target.value
     this.setState({newMonster: newMonster})
   }
 
@@ -43,7 +44,8 @@ class MonsterNew extends Component {
               <Input
                 name="name"
                 placeholder="Who are you?"
-                
+                onChange={this.handleChange}
+                value={this.state.newMonster.name}
               />
             </FormGroup>
         <FormGroup>
@@ -53,6 +55,8 @@ class MonsterNew extends Component {
           <Input
             name="age"
             placeholder="How old are you?"
+            onChange={this.handleChange}
+            value={this.state.newMonster.age}
           />
         </FormGroup>
         <FormGroup>
@@ -62,6 +66,8 @@ class MonsterNew extends Component {
           <Input
             name="specialty"
             placeholder="What are you known for?"
+            onChange={this.handleChange}
+            value={this.state.newMonster.specialty}
           />
         </FormGroup>
             <FormGroup>
@@ -71,6 +77,8 @@ class MonsterNew extends Component {
               <Input
                 name="quote"
                 placeholder="What have you said?"
+                onChange={this.handleChange}
+                value={this.state.newMonster.quote}
               />
             </FormGroup>
             <FormGroup>
@@ -80,6 +88,8 @@ class MonsterNew extends Component {
               <Input
                 name="image"
                 placeholder="What do you look like?"
+                onChange={this.handleChange}
+                value={this.state.newMonster.image}
               />
             </FormGroup>
         <Button onClick={this.handleSubmit} name='submit'>
