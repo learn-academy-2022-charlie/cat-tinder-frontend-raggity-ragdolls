@@ -28,8 +28,6 @@ class App extends Component {
   }
   render() {
     return (
-      <>
-      
       <Router>
         <Header/>
           <Switch>
@@ -46,8 +44,6 @@ class App extends Component {
           </Switch>
         <Footer/>
       </Router>
-      
-      </>
     )
   }
 }
