@@ -23,7 +23,9 @@ class App extends Component {
       monsters: mockMonsters
     }
   }
-  
+  createMonster = (monster) => {
+    console.log(this.state.monsters)
+  }
   render() {
     return (
       <>
@@ -38,7 +40,7 @@ class App extends Component {
               let monster = this.state.monsters.find((monsterObject)=> monsterObject.id == id)
               return <MonsterShow monster={monster}/>
             }} />
-            <Route path="/monsternew" component={MonsterNew} />
+            <Route path="/monsternew" render={(props) => <MonsterNew createMonster={this.createMonster}/>} />
             <Route path="/monsteredit" component={MonsterEdit} />
             <Route component={NotFound} />
           </Switch>

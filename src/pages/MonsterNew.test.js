@@ -28,7 +28,7 @@ describe('When MonsterNew renders', ()=> {
         expect(monsterNewAgeInput.length).toEqual(1)
     })
     it("displays an input for a monster specialty", ()=>{
-        const monsterNewSpecialtyInput= monsterNewRender.find('[name="Specialty"]')
+        const monsterNewSpecialtyInput= monsterNewRender.find('[name="specialty"]')
         expect(monsterNewSpecialtyInput.length).toEqual(1)
     })
     it("displays an input for a monster quote", ()=>{
