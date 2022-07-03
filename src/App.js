@@ -23,6 +23,7 @@ class App extends Component {
       monsters: []
     }
   }
+
   componentDidMount() {
     this.readMonster()
   }
@@ -47,6 +48,31 @@ class App extends Component {
     .catch(errors => console.log("Monster read errors:", errors))
   }
 
+  updateMonster = (editMonster, id) => {
+    fetch(`http://localhost:3000/monsters/${id}`, {
+      body: JSON.stringify(editMonster),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
+  deleteMonster = (monsterId) => {
+    fetch(`http://localhost:3000/monsters/${monsterId}`, {
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
   render() {
     return (
       <Router>
@@ -56,11 +82,14 @@ class App extends Component {
             <Route path="/monsterindex" render={(props)=> <MonsterIndex monsters={this.state.monsters}/>} />
             <Route path="/monstershow/:id" render= {(props) => {
               let id = props.match.params.id
-              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id == id)
-              return <MonsterShow monster={monster}/>
+              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id === +id)
+              return <MonsterShow monster={monster} deleteMonster={this.deleteMonster}/>
             }} />
             <Route path="/monsternew" render={(props) => <MonsterNew createMonster={this.createMonster}/>} />
-            <Route path="/monsteredit" component={MonsterEdit} />
+            <Route path="/monsteredit/:id" render={(props) => { 
+              let id = props.match.params.id
+              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id === +id)
+              return <MonsterEdit monster={monster} updateMonster={this.updateMonster} id={id}/>}} />
             <Route component={NotFound} />
           </Switch>
         <Footer/>

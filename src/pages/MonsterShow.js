@@ -1,30 +1,25 @@
 import React, { Component } from 'react'
-import {
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button,
-  CardText
-} from 'reactstrap'
+import { Card, CardImg,CardBody, CardTitle, CardSubtitle, Button, CardText} from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import '../css/monsterShow.css'
+
 
 
 class MonsterShow extends Component {
+
   render() {
     const { monster } = this.props
     console.log("SHOW", monster)
     return (
       <>
         <h1>Here is a monster</h1>
+        <div id="showCardContainer">
         {monster && 
-            <div id="cardContainer">
-            <Card id='cards' >
+            <Card id='showCards' >
               <CardImg
                 alt="Card image cap"
                 src={monster.image}
-                top
-                width="25%"
+                id="showImage"
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -42,10 +37,23 @@ class MonsterShow extends Component {
                 <CardText>
                     {monster.quote}
                 </CardText>
+                
+                <NavLink to={`/monsteredit/${monster.id}`}>
+                <Button className='showButton'>
+                  Edit Monster
+                </Button>
+                </NavLink>
+                
+                <NavLink to={"/monsterindex"}>
+                <Button  className='showButton' onClick={() => this.props.deleteMonster(monster.id)}>
+                  Delete Monster
+                </Button>
+                </NavLink>
+                
               </CardBody>
             </Card>
-            </div>
         }
+        </div>
       </>
     )
   }
