@@ -18,10 +18,13 @@ class MonsterIndex extends Component {
     return (
       <>
         <h1>Here are all the monsters</h1>
-        {monsters && monsters.map((monster, index)=>{
+        <div id="cardContainer">
+        {monsters && monsters.map((monster, index) => {
+          
           return(
-            <div key={index} id="cardContainer">
-            <Card id='cards' >
+           
+            <div key={index}>
+            <Card className='cards' >
               <CardImg
                 alt="Card image cap"
                 src={monster.image}
@@ -48,6 +51,7 @@ class MonsterIndex extends Component {
             </div>
           )
         })}
+        </div>
       </>
     )
   }

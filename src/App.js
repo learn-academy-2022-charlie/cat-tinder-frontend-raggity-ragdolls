@@ -12,7 +12,7 @@ import NotFound from './pages/NotFound';
 import MonsterNew from './pages/MonsterNew';
 import MonsterShow from './pages/MonsterShow';
 import Home from './pages/Home';
-import mockMonsters from './mockMonsters.js';
+
 
 
 
@@ -20,12 +20,59 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      monsters: mockMonsters
+      monsters: []
     }
   }
-  createMonster = (monster) => {
-    console.log(this.state.monsters)
+
+  componentDidMount() {
+    this.readMonster()
   }
+
+  readMonster = () => {
+    fetch("http://localhost:3000/monsters")
+    .then(response => response.json())
+    .then(monstersArray => this.setState({monsters: monstersArray}))
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
+  createMonster = (newMonster) => {
+    fetch("http://localhost:3000/monsters", {
+      body: JSON.stringify(newMonster),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
+  updateMonster = (editMonster, id) => {
+    fetch(`http://localhost:3000/monsters/${id}`, {
+      body: JSON.stringify(editMonster),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
+  deleteMonster = (monsterId) => {
+    fetch(`http://localhost:3000/monsters/${monsterId}`, {
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readMonster())
+    .catch(errors => console.log("Monster read errors:", errors))
+  }
+
   render() {
     return (
       <Router>
@@ -35,11 +82,14 @@ class App extends Component {
             <Route path="/monsterindex" render={(props)=> <MonsterIndex monsters={this.state.monsters}/>} />
             <Route path="/monstershow/:id" render= {(props) => {
               let id = props.match.params.id
-              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id == id)
-              return <MonsterShow monster={monster}/>
+              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id === +id)
+              return <MonsterShow monster={monster} deleteMonster={this.deleteMonster}/>
             }} />
             <Route path="/monsternew" render={(props) => <MonsterNew createMonster={this.createMonster}/>} />
-            <Route path="/monsteredit" component={MonsterEdit} />
+            <Route path="/monsteredit/:id" render={(props) => { 
+              let id = props.match.params.id
+              let monster = this.state.monsters.find((monsterObject)=> monsterObject.id === +id)
+              return <MonsterEdit monster={monster} updateMonster={this.updateMonster} id={id}/>}} />
             <Route component={NotFound} />
           </Switch>
         <Footer/>

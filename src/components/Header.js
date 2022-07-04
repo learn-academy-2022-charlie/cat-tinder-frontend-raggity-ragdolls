@@ -23,6 +23,9 @@ class Header extends Component {
             <NavLink to='/monsterindex'>
             <p>All Monsters</p>
             </NavLink>
+            <NavLink to='/monsternew'>
+            <p>Make a New Monster</p>
+            </NavLink>
             
         </header>
       </div>

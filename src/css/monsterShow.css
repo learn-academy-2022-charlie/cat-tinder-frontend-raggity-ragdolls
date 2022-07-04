@@ -1,4 +1,4 @@
-#cardContainer{
+#showCardContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -7,9 +7,17 @@
     width: 100vw;
     height: 90vh;
     overflow: hidden;
-    
 }
-.cards{
+#showCards{
     position: relative;
+    flex: 0 0 auto;
     top: 15px;
+}
+#showImage{
+    height: 30vh;
+    width: 25vw;
+}
+.showButton{
+    margin: 0px 25px 0px 25px;
+    
 }
