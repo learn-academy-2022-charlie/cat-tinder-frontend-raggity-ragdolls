@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide,} from 'swiper/react';
-import { Navigation, Pagination, EffectCoverflow} from 'swiper';
+import { Navigation, Pagination, EffectCoverflow, Autoplay} from 'swiper';
 import "../css/home.css"
 import React, { Component } from 'react'
 // Import Swiper styles
@@ -12,13 +12,17 @@ return (
   <>
    <div className="container">
      <Swiper 
-     modules={[Navigation, EffectCoverflow]}
+     modules={[Navigation, EffectCoverflow, Autoplay]}
        centeredSlides={true}
        centeredSlidesBounds={true}
        loop={true}
        navigation={false}
        slidesPerView={1}
        className="swiper1"
+       autoplay={{
+        delay: 3000,
+        disableOnInteraction: false
+    }}
 
      >
       <div className="swiperWrapper">
