@@ -13,6 +13,7 @@
     "react-router-dom": "5.3.3",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.1",
+    "swiper": "*",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
