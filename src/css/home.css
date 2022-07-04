@@ -1,0 +1,36 @@
+#carouselHomePage{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+    z-index: 0;
+    transition: all ease-in-out;
+}
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+    transition: all ease-in-out .6s;
+}
+.carouselImages{
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: auto;
+    filter: brightness(50%);
+    transition: all ease-in-out .6s;
+}
+.carouselImages:hover{
+    filter: brightness(110%);
+}
+.imgContainer:hover{
+    width: 300px;
+}
+
+.carousel.slide{
+    box-shadow: 0px 0px 11px 4px #000000;
+}
