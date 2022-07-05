@@ -13,6 +13,7 @@
     width: 100px;
     transition: all ease-in-out .5s;
     filter: brightness(40%);
+    z-index: 0;
 }
 
 .swiper-slide1{

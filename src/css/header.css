@@ -1,14 +1,21 @@
+@font-face {
+  font-family: anotherDanger;
+  src: url("../assets/anotherDanger.otf") format("opentype");
+}
+
 #headerContainer{
   position: absolute;
   top: 0;
   width: 100vw;
+}
+#headerTitle{
+  color: white;
+  font-family: anotherDanger;
   
 }
-
-
 header{
   margin: 0; 
-  padding: 2em 5em 4vh; 
+  padding: 2em 5em 8vh; 
   color: #efefef;
   overflow:visible;
   position: relative;
@@ -16,7 +23,7 @@ header{
   text-align: right;
   z-index: 1;
   }
-  
+
   header::after{
     content:"";
     position:absolute;
@@ -28,21 +35,37 @@ header{
     z-index: -1;
     transform: skewY(4deg);
     transform-origin: bottom right;
+    
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
     0 2px 2px rgba(0,0,0,0.12), 
     0 4px 4px rgba(0,0,0,0.12), 
     0 8px 8px rgba(0,0,0,0.12),
     0 16px 16px rgba(0,0,0,0.12);
   }
+.dropdown{
+  float: right;
+  color: white;
+  width: 100px;
+  right: 50px;
+}
+#dropdownBtn{
+  background-color: rgba(255, 0, 0, 0);
+  border: none;
 
+}
   #dropdownContainer{
     border: '1px solid #000';
     height: 100;
     overflow: 'hidden';
     padding: '8px';
     width: 300;
+    text-decoration: none;
   }
-
+ .navLinkText{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+ }
   @keyframes slide-tl {
     0% {
       padding: 2em 5em 51vh;
@@ -61,7 +84,7 @@ header{
       transition: padding ease-in-out;
     }
     100% {
-      padding: 2em 5em 4vh;
+      padding: 2em 5em 8vh;
       transition: padding ease-in-out; 
     }
   }
