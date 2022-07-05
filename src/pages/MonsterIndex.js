@@ -20,7 +20,6 @@ class MonsterIndex extends Component {
     console.log("INDEX", monsters)
     return (
       <>
-        <h1>Here are all the monsters</h1>
         <div id="cardContainer">
         <Swiper 
          modules={[Navigation, EffectCoverflow, Pagination]}
