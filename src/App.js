@@ -16,6 +16,7 @@ import Home from './pages/Home';
 
 
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -78,7 +79,7 @@ class App extends Component {
       <Router>
         <Header/>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={(props)=> <Home monster={this.state.monsters}/>} />
             <Route path="/monsterindex" render={(props)=> <MonsterIndex monsters={this.state.monsters}/>} />
             <Route path="/monstershow/:id" render= {(props) => {
               let id = props.match.params.id

@@ -1,0 +1,59 @@
+.container{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+.swiper1{
+    position:relative;
+    top: 30vh;
+    height: 40vh;
+    width: 100px;
+    transition: all ease-in-out .5s;
+    filter: brightness(40%);
+    z-index: 0;
+}
+
+.swiper-slide1{
+    height: 40vh;
+    width: 10px;
+    overflow: hidden;
+    display:flex;
+    background: rgba(238, 238, 238, 0);
+    align-items: center;
+    justify-content:center;
+   
+}
+.swiper-slide1 img{
+    width: 40vw;
+    height: 40vh;
+    
+}
+.swiper-slide1::after{
+    content: "";
+    background-image: url("../assets/grainy.png");
+    width: 60vw;
+    height: 400%;
+    opacity: .25;
+    position: fixed;
+    animation: grain 8s steps(10) infinite;
+}
+.swiper1:hover{
+    filter: brightness(125%);
+    width: 400px;
+}
+
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+  }

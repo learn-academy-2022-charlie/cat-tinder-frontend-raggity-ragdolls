@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Stephen
+Show off app UI
+What is one UI feature you are proud of?
+header and footer animation. Animation by adding padding
+Show off the code- header and footer css
+
+Valerie
+Show off the app functionality- stephen show how to create a monster
+One functionality you are pround of- doing extensive testing on validations
+Stephen show model validation : models-monster.rb and spec: monster_spec.rb
+ 
